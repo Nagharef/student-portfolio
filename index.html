@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nagha Narasimha G — Portfolio</title>
+  
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+  :root{
+    --bg:#0b0b0c;
+    --panel:#121214;
+    --muted:#bfc7d1;
+    --accent:#00aaff; /* blue accent */
+    --glass: rgba(255,255,255,0.03);
+    --glass-2: rgba(255,255,255,0.02);
+    --glass-border: rgba(255,255,255,0.04);
+    --card-shadow: 0 6px 20px rgba(0,0,0,0.6);
+  }
+
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: linear-gradient(180deg,var(--bg), #09090a 120%);
+    color:#e6eef6;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height:1.45;
+  }
+
+  /* ---------- layout ---------- */
+  .container{max-width:1100px;margin:0 auto;padding:28px;}
+  header{position:sticky;top:0;z-index:50;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);backdrop-filter: blur(6px);border-bottom:1px solid var(--glass-border);}
+  .nav {
+    display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 18px;
+  }
+  .logo{font-weight:700;color:var(--accent);letter-spacing:0.2px}
+  nav ul{list-style:none;display:flex;gap:18px;margin:0;padding:0;align-items:center}
+  nav a{color:var(--muted);text-decoration:none;font-weight:500;font-size:0.95rem;padding:6px 8px;border-radius:8px;transition:all 200ms}
+  nav a:hover{color:#fff;background:rgba(255,255,255,0.02)}
+  .cta{background:linear-gradient(90deg,var(--accent), #0090e0);padding:8px 12px;border-radius:9px;color:white;font-weight:600;box-shadow: 0 6px 16px rgba(0,170,255,0.12);text-decoration:none}
+  .hamburger{display:none;cursor:pointer;border:1px solid var(--glass-border);padding:8px;border-radius:8px}
+
+  /* ---------- hero ---------- */
+  .hero{
+    min-height:78vh;
+    display:grid;place-items:center;padding:40px 18px;
+  }
+  .hero-inner{display:grid;gap:18px;align-items:center;text-align:center}
+  .eyebrow{color:var(--muted);font-weight:500}
+  .hero h1{font-size:2.3rem;margin:0;color:#fff}
+  .hero .tagline{font-weight:600;color:var(--muted);font-size:1rem}
+  .typed{color:var(--accent);font-weight:700}
+  .hero-buttons{display:flex;gap:12px;justify-content:center;margin-top:6px}
+  .btn{padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:600}
+  .btn-primary{background:linear-gradient(90deg,var(--accent), #0090e0);color:#001623;box-shadow:0 8px 30px rgba(0,170,255,0.12)}
+  .btn-ghost{border:1px solid var(--glass-border;color:var(--muted);background:transparent;color:var(--muted)}
+  .muted-note{color:var(--muted);font-size:0.92rem}
+
+  /* ---------- sections ---------- */
+  section{padding:64px 18px}
+  h2{color:var(--accent);font-size:1.6rem;margin:0 0 14px}
+  .panel{background:linear-gradient(180deg,var(--glass),var(--glass-2));border:1px solid var(--glass-border);padding:20px;border-radius:12px;box-shadow:var(--card-shadow)}
+  .about-grid{display:grid;grid-template-columns: 1fr 320px;gap:24px;align-items:start}
+  .profile-photo{width:100%;max-width:260px;border-radius:12px;display:block;object-fit:cover;border:1px solid var(--glass-border);box-shadow:0 8px 30px rgba(0,0,0,0.5)}
+  .about p{color:var(--muted);margin-top:8px}
+
+  /* skills */
+  .skill{margin-bottom:12px}
+  .skill .label{display:flex;justify-content:space-between;font-weight:600;color:#dfeaf6}
+  .bar{height:11px;background:rgba(255,255,255,0.03);border-radius:999px;margin-top:6px;overflow:hidden;border:1px solid rgba(255,255,255,0.02)}
+  .bar > span{display:block;height:100%;background:linear-gradient(90deg,var(--accent), #6ad1ff);width:0%;border-radius:999px;transition:width 900ms cubic-bezier(.2,.9,.3,1)}
+
+  /* projects */
+  .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+  .project-card{padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.015));border:1px solid var(--glass-border);transition:transform 300ms, box-shadow 300ms}
+  .project-card:hover{transform:translateY(-8px);box-shadow:0 18px 50px rgba(0,0,0,0.6)}
+  .project-card h3{margin:0 0 8px}
+  .project-card p{color:var(--muted);margin:0 0 12px;font-size:0.95rem}
+  .techs{display:flex;gap:8px;flex-wrap:wrap}
+  .chip{font-size:0.82rem;padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.02);color:var(--muted)}
+
+  /* contact */
+  .contact-grid{display:grid;grid-template-columns:1fr 300px;gap:20px}
+  .contact-links a{display:inline-block;margin-right:10px;margin-bottom:8px;padding:8px 12px;border-radius:10px;background:rgba(255,255,255,0.02);color:var(--muted);text-decoration:none;font-weight:600}
+
+  footer{padding:22px 18px;text-align:center;color:var(--muted);border-top:1px solid var(--glass-border);margin-top:28px}
+
+  /* ---------- small screens ---------- */
+  @media (max-width:880px){
+    .about-grid{grid-template-columns:1fr}
+    .contact-grid{grid-template-columns:1fr}
+    nav ul{display:none}
+    .hamburger{display:block}
+  }
+
+  /* ---------- reveal animations ---------- */
+  .reveal{opacity:0;transform:translateY(10px);transition:all 650ms cubic-bezier(.2,.9,.3,1)}
+  .reveal.show{opacity:1;transform:none}
+
+  /* typing cursor */
+  .cursor{display:inline-block;width:2px;height:1.1em;background:var(--accent);margin-left:6px;vertical-align:middle;animation:blink 1s steps(2) infinite}
+  @keyframes blink{50%{opacity:0}}
+
+  /* small utilities */
+  .meta{color:var(--muted);font-size:0.9rem}
+  .row{display:flex;gap:12px;align-items:center}
+
+  /* Remove unwanted spacing between sections */
+section {
+  margin: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* Tighter layout for hero section */
+#hero {
+  padding-top: 80px;
+  padding-bottom: 60px;
+}
+
+/* Remove extra gap after header */
+header {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* Optional: smooth alignment and spacing */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Optional tweak to keep content aligned nicely */
+.container {
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- HEADER / NAV -->
+  <header>
+    <div class="container nav">
+      <div class="row">
+        <div class="logo">Nagha Narasimha G</div>
+        <div style="width:10px"></div>
+        <div class="muted-note">CSE (AIML) Student</div>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-inner">
+        <h1 class="reveal" style="font-size:2.4rem">Nagha Narasimha G</h1>
+        <div class="tagline reveal">CSE (AIML) Student | <span style="color:var(--muted)">Exploring</span> <span class="typed" id="typed">AI & ML</span><span class="cursor"></span></div>
+
+        <div class="hero-buttons reveal">
+          <a class="btn btn-primary" href="#projects">See Projects</a>
+          <a class="btn" href="#contact" style="background:transparent;border:1px solid var(--glass-border;color:var(--muted);">Contact</a>
+        </div>
+
+        <p class="muted-note reveal" style="margin-top:12px">Open to internships and mini-projects. Exploring AI, ML, and systems; equally curious about building useful tools.</p>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container reveal">
+        <h2>About Me</h2>
+        <div class="panel about-grid">
+          <div>
+            <p style="margin:0;color:var(--muted)">
+              I am a 3rd-year Computer Science (AIML) student who enjoys building practical projects and learning systems and AI fundamentals.
+              I like solving problems with code, experimenting with models, and building prototypes that could help people — currently exploring Smart Systems and ML.
+            </p>
+
+            <div style="margin-top:18px">
+              <div class="meta">Education</div>
+              <div style="font-weight:700;margin-top:6px">B.Tech — Computer Science (AIML) — Easwari Engineering College</div>
+            </div>
+
+            <div style="margin-top:16px">
+              <div class="meta">Certifications</div>
+              <ul style="margin-top:8px;color:var(--muted);line-height:1.5">
+                <li>NPTEL — Privacy & Security in Online Social Media (overview & concepts)</li>
+                <li>NPTEL — Introduction to Internet of Things (IoT) (basic architecture & apps)</li>
+              </ul>
+            </div>
+          </div>
+         </div>
+
+            <div style="width:100%;text-align:center">
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="container reveal">
+        <h2>Skills</h2>
+        <div class="panel" style="display:grid;gap:12px">
+          <div class="skill">
+            <div class="label"><span>Python</span></div>
+            <div class="bar"><span style="width:85%"></span></div>
+          </div>
+
+          <div class="skill">
+            <div class="label"><span>Java</span></div>
+            <div class="bar"><span style="width:70%"></span></div>
+          </div>
+
+          <div class="skill">
+            <div class="label"><span>MySQL</span></div>
+            <div class="bar"><span style="width:70%"></span></div>
+          </div>
+
+          <div class="skill">
+            <div class="label"><span>Machine Learning (Basics)</span></div>
+            <div class="bar"><span style="width:60%"></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="container reveal">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <h3>Smart Traffic Management System</h3>
+            <p>Built a prototype that uses vehicle density estimation and priority detection to dynamically control traffic lights and clear lanes for emergency vehicles.</p>
+            <div class="techs">
+              <p><strong>Tools & Frameworks:</strong> Python · Flask · OpenCV · MySQL</p>
+            </div>
+          </div>
+
+          
+
+    <!-- CONTACT -->
+<section id="contact">
+  <div class="container reveal">
+    <h2>Contact</h2>
+    <div class="panel contact-grid">
+      <div>
+          <div class="contact-links">
+          <a href="tel:+919884945441" class="contact-link">Phone</a>
+          <a href="mailto:offlnagha@gmail.com" class="contact-link">Email</a>
+          <a href="https://github.com/Nagharef" target="_blank" class="contact-link">GitHub</a>
+          <a href="https://www.linkedin.com/in/nagha-narasimha-g-3b244a320/" target="_blank" class="contact-link">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="container">
+    © <span id="year"></span> Nagha Narasimha G
+  </div>
+</footer>
+
+
+
+  </main>
+
+  
+  <script>
+  // set year
+  document.getElementById('year').innerText = new Date().getFullYear();
+
+  // Mobile nav toggle (simple)
+  const hamburger = document.getElementById('hamburger');
+  hamburger && hamburger.addEventListener('click', () => {
+    const nav = document.querySelector('nav ul');
+    if (!nav) return;
+    if (nav.style.display === 'flex') nav.style.display = 'none';
+    else nav.style.display = 'flex';
+  });
+
+  // Typing rotation for hero phrases
+  const phrases = [
+    'Exploring AI & ML',
+    'Building Smart Systems',
+    'Curious about Data & Models'
+  ];
+  let pi = 0, ci = 0;
+  const typedEl = document.getElementById('typed');
+
+  function typeLoop() {
+    const word = phrases[pi];
+    if (!typedEl) return;
+    typedEl.innerText = word.slice(0, ++ci);
+    if (ci === word.length) {
+      setTimeout(() => {
+        // erase
+        const eraser = setInterval(() => {
+          typedEl.innerText = word.slice(0, --ci);
+          if (ci === 0) {
+            clearInterval(eraser);
+            pi = (pi + 1) % phrases.length;
+            setTimeout(typeLoop, 200);
+          }
+        }, 40);
+      }, 1000);
+    } else {
+      setTimeout(typeLoop, 60);
+    }
+  }
+  typeLoop();
+
+  // Reveal on scroll (IntersectionObserver)
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('show');
+    });
+  }, {threshold:0.08});
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // animate skill bars on reveal
+  const bars = document.querySelectorAll('.bar > span');
+  // when skills section visible, expand widths
+  const skillsSection = document.getElementById('skills');
+  if (skillsSection) {
+    const obsSkills = new IntersectionObserver((ents) => {
+      ents.forEach(en=>{
+        if (en.isIntersecting) {
+          bars.forEach(b=>{
+            const w = b.style.width || '60%';
+            b.style.width = w;
+          });
+          obsSkills.disconnect();
+        }
+      });
+    }, {threshold:0.2});
+    obsSkills.observe(skillsSection);
+  }
+  </script>
+</body>
+</html>
