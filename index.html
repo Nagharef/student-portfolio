@@ -87,6 +87,30 @@
     text-align:center;
     max-width:800px;
   }
+
+  /* Profile Picture */
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 10%; 
+  border: 3px solid var(--accent);
+  box-shadow: 0 0 25px rgba(0,170,255,0.3);
+  margin: 40px auto 16px;
+  display: block;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.profile-pic:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px rgba(0,170,255,0.5);
+}
+
+  .profile-pic:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(0,170,255,0.5);
+  }
+
   .hero h1{
     font-size:3rem;
     margin:0;
@@ -138,22 +162,9 @@
 
   /* ---------- sections ---------- */
   section{padding:80px 0}
-  .section-header{
-    text-align:center;
-    margin-bottom:50px;
-  }
-  h2{
-    color:#fff;
-    font-size:2rem;
-    margin:0 0 12px;
-    font-weight:700;
-  }
-  .section-subtitle{
-    color:var(--muted);
-    font-size:1rem;
-    max-width:600px;
-    margin:0 auto;
-  }
+  .section-header{text-align:center;margin-bottom:50px;}
+  h2{color:#fff;font-size:2rem;margin:0 0 12px;font-weight:700;}
+  .section-subtitle{color:var(--muted);font-size:1rem;max-width:600px;margin:0 auto;}
   .panel{
     background:linear-gradient(135deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01));
     border:1px solid var(--glass-border);
@@ -163,22 +174,9 @@
   }
 
   /* about section */
-  .about-content{
-    max-width:900px;
-    margin:0 auto;
-  }
-  .about-text{
-    color:var(--muted);
-    font-size:1.05rem;
-    line-height:1.8;
-    margin-bottom:40px;
-  }
-  .info-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:32px;
-    margin-top:40px;
-  }
+  .about-content{max-width:900px;margin:0 auto;}
+  .about-text{color:var(--muted);font-size:1.05rem;line-height:1.8;margin-bottom:40px;}
+  .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;margin-top:40px;}
   .info-card{
     background:rgba(255,255,255,0.02);
     border:1px solid var(--glass-border);
@@ -186,43 +184,14 @@
     border-radius:14px;
     transition:all 300ms;
   }
-  .info-card:hover{
-    background:rgba(255,255,255,0.04);
-    transform:translateY(-4px);
-  }
-  .info-card-title{
-    color:var(--accent);
-    font-weight:600;
-    font-size:0.9rem;
-    text-transform:uppercase;
-    letter-spacing:0.5px;
-    margin-bottom:12px;
-  }
-  .info-card-content{
-    color:#fff;
-    font-weight:600;
-    font-size:1.05rem;
-    margin-bottom:8px;
-  }
-  .info-card ul{
-    margin:12px 0 0;
-    padding-left:20px;
-    color:var(--muted);
-    line-height:1.8;
-  }
-  .info-card li{
-    margin-bottom:8px;
-  }
+  .info-card:hover{background:rgba(255,255,255,0.04);transform:translateY(-4px);}
+  .info-card-title{color:var(--accent);font-weight:600;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:12px;}
+  .info-card-content{color:#fff;font-weight:600;font-size:1.05rem;margin-bottom:8px;}
+  .info-card ul{margin:12px 0 0;padding-left:20px;color:var(--muted);line-height:1.8;}
+  .info-card li{margin-bottom:8px;}
 
   /* skills section */
-  .skills-grid{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:20px;
-    max-width:900px;
-    margin:0 auto;
-  }
+  .skills-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;max-width:900px;margin:0 auto;}
   .skill-pill {
     padding:16px 28px;
     border-radius:999px;
@@ -244,107 +213,23 @@
   }
 
   /* projects */
-  .projects-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:28px;
-    max-width:1100px;
-    margin:0 auto;
-  }
-  .project-card{
-    padding:28px;
-    border-radius:16px;
-    background:linear-gradient(135deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01));
-    border:1px solid var(--glass-border);
-    transition:all 350ms;
-    position:relative;
-    overflow:hidden;
-  }
-  .project-card::before{
-    content:'';
-    position:absolute;
-    top:0;
-    left:0;
-    right:0;
-    height:4px;
-    background:linear-gradient(90deg,var(--accent),#6ad1ff);
-    opacity:0;
-    transition:opacity 350ms;
-  }
-  .project-card:hover::before{opacity:1}
-  .project-card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 20px 60px rgba(0,0,0,0.7);
-    border-color:rgba(0,170,255,0.3);
-  }
-  .project-card h3{
-    margin:0 0 12px;
-    color:#fff;
-    font-size:1.3rem;
-  }
-  .project-card p{
-    color:var(--muted);
-    margin:0 0 20px;
-    font-size:0.98rem;
-    line-height:1.7;
-  }
-  .project-meta{
-    background:rgba(255,255,255,0.02);
-    padding:14px;
-    border-radius:10px;
-    border:1px solid rgba(255,255,255,0.04);
-  }
-  .project-meta strong{
-    color:var(--accent);
-    font-size:0.85rem;
-    text-transform:uppercase;
-    letter-spacing:0.5px;
-  }
-  .project-meta p{
-    margin:8px 0 0;
-    color:var(--muted);
-    font-size:0.9rem;
-  }
+  .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px;max-width:1100px;margin:0 auto;}
+  .project-card{padding:28px;border-radius:16px;background:linear-gradient(135deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01));border:1px solid var(--glass-border);transition:all 350ms;position:relative;overflow:hidden;}
+  .project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--accent),#6ad1ff);opacity:0;transition:opacity 350ms;}
+  .project-card:hover::before{opacity:1;}
+  .project-card:hover{transform:translateY(-8px);box-shadow:0 20px 60px rgba(0,0,0,0.7);border-color:rgba(0,170,255,0.3);}
+  .project-card h3{margin:0 0 12px;color:#fff;font-size:1.3rem;}
+  .project-card p{color:var(--muted);margin:0 0 20px;font-size:0.98rem;line-height:1.7;}
+  .project-meta{background:rgba(255,255,255,0.02);padding:14px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);}
+  .project-meta strong{color:var(--accent);font-size:0.85rem;text-transform:uppercase;letter-spacing:0.5px;}
+  .project-meta p{margin:8px 0 0;color:var(--muted);font-size:0.9rem;}
 
   /* contact */
-  .contact-content{
-    max-width:700px;
-    margin:0 auto;
-  }
-  .contact-links{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-    gap:16px;
-    margin-top:30px;
-  }
-  .contact-link{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:16px 24px;
-    border-radius:12px;
-    background:rgba(255,255,255,0.03);
-    border:1px solid var(--glass-border);
-    color:var(--muted);
-    text-decoration:none;
-    font-weight:600;
-    transition:all 300ms;
-  }
-  .contact-link:hover{
-    background:rgba(0,170,255,0.1);
-    border-color:rgba(0,170,255,0.4);
-    color:var(--accent);
-    transform:translateY(-4px);
-  }
-
-  footer{
-    padding:32px 0;
-    text-align:center;
-    color:var(--muted);
-    border-top:1px solid var(--glass-border);
-    margin-top:40px;
-    font-size:0.9rem;
-  }
+  .contact-content{max-width:700px;margin:0 auto;}
+  .contact-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;margin-top:30px;}
+  .contact-link{display:flex;align-items:center;justify-content:center;padding:16px 24px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);color:var(--muted);text-decoration:none;font-weight:600;transition:all 300ms;}
+  .contact-link:hover{background:rgba(0,170,255,0.1);border-color:rgba(0,170,255,0.4);color:var(--accent);transform:translateY(-4px);}
+  footer{padding:32px 0;text-align:center;color:var(--muted);border-top:1px solid var(--glass-border);margin-top:40px;font-size:0.9rem;}
 
   /* ---------- responsive ---------- */
   @media (max-width:768px){
@@ -360,26 +245,9 @@
   }
 
   /* ---------- animations ---------- */
-  .reveal{
-    opacity:0;
-    transform:translateY(30px);
-    transition:all 800ms cubic-bezier(.2,.9,.3,1);
-  }
-  .reveal.show{
-    opacity:1;
-    transform:none;
-  }
-
-  /* typing cursor */
-  .cursor{
-    display:inline-block;
-    width:2px;
-    height:1.1em;
-    background:var(--accent);
-    margin-left:6px;
-    vertical-align:middle;
-    animation:blink 1s steps(2) infinite;
-  }
+  .reveal{opacity:0;transform:translateY(30px);transition:all 800ms cubic-bezier(.2,.9,.3,1);}
+  .reveal.show{opacity:1;transform:none;}
+  .cursor{display:inline-block;width:2px;height:1.1em;background:var(--accent);margin-left:6px;vertical-align:middle;animation:blink 1s steps(2) infinite;}
   @keyframes blink{50%{opacity:0}}
   </style>
 </head>
@@ -411,6 +279,7 @@
   <main>
     <section id="home" class="hero">
       <div class="container hero-inner">
+        <img src="profile.jpg" alt="Nagha Narasimha" class="profile-pic reveal">
         <h1 class="reveal">Nagha Narasimha G</h1>
         <div class="tagline reveal">
           CSE (AIML) Student | <span class="typed" id="typed">Exploring AI & ML</span><span class="cursor"></span>
@@ -438,7 +307,11 @@
         <div class="about-content reveal">
           <div class="panel">
             <p class="about-text">
-              I am a 3rd-year Computer Science (AIML) student who enjoys building practical projects and learning systems and AI fundamentals. I like solving problems with code, experimenting with models, and building prototypes that could help people — currently exploring Smart Systems and ML.
+              I'm a Computer Science (AIML) student with a hands-on approach to learning — passionate about building practical projects and exploring the real-world applications of Artificial Intelligence and Machine Learning.</p>
+
+<p>I enjoy turning ideas into working prototypes — from data-driven systems to intelligent tools that can simplify everyday tasks. My focus lies in understanding the fundamentals of algorithms, models, and system design, while also applying them through Python, Java, and MySQL.</p>
+
+<p>I'm currently exploring AI, ML, and core computer science areas such as databases, operating systems, and computer networks — building a strong foundation across both intelligent systems and traditional computing. Beyond academics, I’m driven by curiosity, creativity, and the desire to build technology that actually helps people.
             </p>
 
             <div class="info-grid">
@@ -483,8 +356,7 @@
       <div class="container">
         <div class="section-header reveal">
           <h2>Projects</h2>
-          <p class="section-subtitle">Building solutions that make a difference</p>
-        </div>
+            </div>
         
         <div class="projects-grid">
           <div class="project-card reveal">
@@ -593,3 +465,4 @@
   </script>
 </body>
 </html>
+
