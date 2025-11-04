@@ -141,6 +141,37 @@ body {
   padding: 0 20px;
 }
 
+/* ========== Frosted Glass Skill Pills ========== */
+.skills-panel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.skill-pill {
+  padding: 10px 24px;
+  border-radius: 999px; /* pill shape */
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 0.95rem;
+  backdrop-filter: blur(8px); /* frosted glass effect */
+  transition: all 0.25s ease;
+  cursor: default;
+}
+
+.skill-pill:hover {
+  background: rgba(0, 170, 255, 0.2);
+  border-color: rgba(0, 170, 255, 0.4);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px rgba(0, 170, 255, 0.25);
+}
+
+
   </style>
 </head>
 <body>
@@ -221,29 +252,15 @@ body {
     <section id="skills">
       <div class="container reveal">
         <h2>Skills</h2>
-        <div class="panel" style="display:grid;gap:12px">
-          <div class="skill">
-            <div class="label"><span>Python</span></div>
-            <div class="bar"><span style="width:85%"></span></div>
-          </div>
-
-          <div class="skill">
-            <div class="label"><span>Java</span></div>
-            <div class="bar"><span style="width:70%"></span></div>
-          </div>
-
-          <div class="skill">
-            <div class="label"><span>MySQL</span></div>
-            <div class="bar"><span style="width:70%"></span></div>
-          </div>
-
-          <div class="skill">
-            <div class="label"><span>Machine Learning (Basics)</span></div>
-            <div class="bar"><span style="width:60%"></span></div>
-          </div>
+        <div class="skills-panel">
+          <div class="skill-pill">Python</div>
+          <div class="skill-pill">Java</div>
+          <div class="skill-pill">MySQL</div>
+          <div class="skill-pill">Machine Learning (Basics)</div>
         </div>
       </div>
     </section>
+
 
     <!-- PROJECTS -->
     <section id="projects">
